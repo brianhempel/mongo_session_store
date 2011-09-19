@@ -19,13 +19,13 @@ In the session_store initializer (config/initializers/session_store.rb):
 
 ```ruby
 # MongoMapper
-MyApp::Application.config.session_store = :mongo_mapper_store
+MyApp::Application.config.session_store :mongo_mapper_store
 
 # Mongoid
-MyApp::Application.config.session_store = :mongoid_store
+MyApp::Application.config.session_store :mongoid_store
 
 # anything else
-MyApp::Application.config.session_store = :mongo_store
+MyApp::Application.config.session_store :mongo_store
 MongoStore::Session.database = Mongo::Connection.new.db('my_app_development')
 ```
 
