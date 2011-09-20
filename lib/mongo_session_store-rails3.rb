@@ -27,6 +27,6 @@ module MongoSessionStore
   self.collection_name = "sessions"
 end
 
-require 'mongo_session_store/mongo_mapper_store'
-require 'mongo_session_store/mongoid_store'
-require 'mongo_session_store/mongo_store'
+autoload :MongoMapperStore,'mongo_session_store/mongo_mapper_store'
+autoload :MongoidStore, 'mongo_session_store/mongoid_store'
+autoload :MongoStore, 'mongo_session_store/mongo_store'
