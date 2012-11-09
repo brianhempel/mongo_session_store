@@ -17,7 +17,12 @@ module MongoSessionStore
     end
 
     if defined?(MongoidStore::Session)
-      MongoidStore::Session.store_in(name)
+
+      if Mongoid::VERSION.to_i > 2
+        MongoidStore::Session.store_in :collection => MongoSessionStore.collection_name
+      else
+        MongoidStore::Session.store_in(name)
+      end
     end
 
     @collection_name
