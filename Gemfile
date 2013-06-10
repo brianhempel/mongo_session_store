@@ -22,7 +22,7 @@ group :development, :test do
   end
 
   if !ENV['MONGO_SESSION_STORE_ORM'] || ENV['MONGO_SESSION_STORE_ORM'] == 'mongoid'
-    gem 'mongoid', '~> 3.0', :platforms => [:ruby_19, :jruby]
+    gem 'mongoid', '~> 3.0', :platforms => [:ruby_19, :jruby, :ruby_20]
   end
 
   if !ENV['MONGO_SESSION_STORE_ORM'] || ENV['MONGO_SESSION_STORE_ORM'] == 'mongo'
