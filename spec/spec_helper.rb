@@ -12,7 +12,13 @@ require "rails_#{rails_version}_app/config/environment"
 require 'rspec/rails'
 
 def db
-  Mongo::Connection.new[database_name]
+  if defined?(Mongoid)
+    MongoidStore::Session.mongo_session
+  elsif defined?(MongoMapper)
+    MongoMapper.database
+  elsif defined?(Mongo)
+    Mongo::Connection.new[database_name]
+  end
 end
 
 def database_name
@@ -31,8 +37,6 @@ RSpec.configure do |config|
   end
 
   config.before :each do
-    drop_collections_in(MongoidStore::Session.mongo_session) if defined?(Mongoid)
-    drop_collections_in(MongoMapper.database) if defined?(MongoMapper)
     drop_collections_in(db)
     User.delete_all
   end
