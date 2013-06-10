@@ -6,3 +6,5 @@ Gemfile.lock
 Gemfile_Rails_*.lock
 *.gem
 .rvmrc
+*.swo
+*.swp
