@@ -15,7 +15,9 @@ MongoSessionStore is compatible with Rails 3.1 and 3.2. (Use [version 3.0.6](htt
 In your Gemfile:
 
 ```ruby
-gem "mongo_mapper" # or "Mongoid," or another Mongo ODM, or nothing
+gem "mongo_mapper"
+# or gem "mongoid"
+# or gem "mongo"
 gem "mongo_session_store-rails3"
 ```
 
