@@ -25,7 +25,9 @@ group :development, :test do
     gem 'mongoid', '~> 3.0', :platforms => [:ruby_19, :jruby]
   end
 
-  gem 'mongo',         MONGO_VERS
+  if !ENV['MONGO_SESSION_STORE_ORM'] || ENV['MONGO_SESSION_STORE_ORM'] == 'mongo'
+    gem 'mongo',         MONGO_VERS
+  end
   gem 'bson_ext',      MONGO_VERS, :platforms => :ruby
 
   gem 'system_timer', :platforms => :ruby_18
