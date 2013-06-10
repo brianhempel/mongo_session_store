@@ -33,7 +33,7 @@ RSpec.configure do |config|
   config.before :each do
     drop_collections_in(MongoidStore::Session.mongo_session) if defined?(Mongoid)
     drop_collections_in(MongoMapper.database) if defined?(MongoMapper)
-    drop_collections_in(db)
+    drop_collections_in(db) if defined?(Mongo)
     User.delete_all
   end
 end
