@@ -74,16 +74,16 @@ describe Devise::SessionsController do
   
   it "stores the session in the sessions collection" do
     collection = db["sessions"]
-    collection.count.should == 0
+    collection.find.count.should == 0
     create_user
-    collection.count.should == 1
+    collection.find.count.should == 1
   end
   
   it "allows renaming of the collection that stores the sessions" do
     collection = db["dance_parties"]
-    collection.count.should == 0
+    collection.find.count.should == 0
     MongoSessionStore.collection_name = "dance_parties"
     create_user
-    collection.count.should == 1    
+    collection.find.count.should == 1    
   end
 end
