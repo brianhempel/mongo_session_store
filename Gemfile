@@ -19,6 +19,7 @@ group :development, :test do
   gem 'rake'
   if !ENV['MONGO_SESSION_STORE_ORM'] || ENV['MONGO_SESSION_STORE_ORM'] == 'mongo_mapper'
     gem 'mongo_mapper', '>= 0.10.1'
+    gem 'bson_ext',      MONGO_VERS, :platforms => :ruby
   end
 
   if !ENV['MONGO_SESSION_STORE_ORM'] || ENV['MONGO_SESSION_STORE_ORM'] == 'mongoid'
@@ -27,8 +28,8 @@ group :development, :test do
 
   if !ENV['MONGO_SESSION_STORE_ORM'] || ENV['MONGO_SESSION_STORE_ORM'] == 'mongo'
     gem 'mongo',         MONGO_VERS
+    gem 'bson_ext',      MONGO_VERS, :platforms => :ruby
   end
-  gem 'bson_ext',      MONGO_VERS, :platforms => :ruby
 
   gem 'system_timer', :platforms => :ruby_18
   gem 'rbx-require-relative', '0.0.5', :platforms => :ruby_18
