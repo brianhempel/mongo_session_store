@@ -14,4 +14,5 @@ Gem::Specification.new do |s|
   s.summary          = "Rails session stores for MongoMapper, Mongoid, or any other ODM. Rails 3.1 and 3.2 compatible."
 
   s.add_dependency "actionpack", ">= 3.1"
+  s.add_dependency "moped"
 end
