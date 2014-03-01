@@ -16,6 +16,9 @@ module ActionDispatch
 
         def self.load(options = {})
           options[:data] = options["data"] if options["data"]
+		  options[:_id] = options['_id'] if options['_id']
+          options[:created_at] = options['created_at'] if options['created_at']
+          options[:updated_at] = options['updated_at'] if options['updated_at']
           new(options)
         end
 
