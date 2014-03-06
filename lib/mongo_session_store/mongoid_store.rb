@@ -12,7 +12,7 @@ module ActionDispatch
 
         store_in :collection => MongoSessionStore.collection_name
 
-        field :_id, :type => String
+        field :_id, :type => String, :overwrite => true
         field :data, :type => BINARY_CLASS, :default => -> { marshaled_binary({}) }
         attr_accessible :_id, :data if respond_to?(:attr_accessible)
 
