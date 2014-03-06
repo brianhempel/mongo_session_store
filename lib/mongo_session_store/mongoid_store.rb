@@ -12,7 +12,11 @@ module ActionDispatch
 
         store_in :collection => MongoSessionStore.collection_name
 
-        field :_id, :type => String, :overwrite => true
+        if Mongoid::Fields::Validators::Macro::OPTIONS.include? :overwrite
+          field :_id, :type => String, :overwrite => true
+        else
+          field :_id, :type => String
+        end
         field :data, :type => BINARY_CLASS, :default => -> { marshaled_binary({}) }
         attr_accessible :_id, :data if respond_to?(:attr_accessible)
 
