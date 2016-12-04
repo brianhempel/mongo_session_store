@@ -39,7 +39,7 @@ MyApp::Application.config.session_store :mongoid_store
 
 # anything else
 MyApp::Application.config.session_store :mongo_store
-MongoStore::Session.database = Mongo::Client.new(['127.0.0.1:27017'], database: \"my_app_development\")
+MongoStore::Session.database = Mongo::Client.new(["127.0.0.1:27017"], database: "my_app_development")
 ```
 
 By default, the sessions will be stored in the "sessions" collection in MongoDB.  If you want to use a different collection, you can set that in the initializer:
@@ -58,7 +58,7 @@ MongoMapperStore::Session.where(:updated_at.gt => 2.days.ago)
 MongoidStore::Session.where(:updated_at.gt => 2.days.ago)
 
 # Plain old Mongo
-MongoStore::Session.where('updated_at' => { '$gt' => 2.days.ago })
+MongoStore::Session.where("updated_at" => { "$gt" => 2.days.ago })
 ```
 
 ## Changelog
