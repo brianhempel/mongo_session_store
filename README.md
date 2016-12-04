@@ -1,5 +1,7 @@
 # MongoSessionStore [![Build Status](https://travis-ci.org/brianhempel/mongo_session_store.png?branch=master)](https://travis-ci.org/brianhempel/mongo_session_store) [![Gem Version](https://badge.fury.io/rb/mongo_session_store-rails4.svg)](http://badge.fury.io/rb/mongo_session_store-rails4)
 
+This gem is for Rails 3 and 4. For Rails 5 and later, see [mongoid/mongo_session_store](https://github.com/mongoid/mongo_session_store).
+
 ## Description
 
 MongoSessionStore is a collection of Rails-compatible session stores for MongoMapper and Mongoid, but also included is a generic Mongo store that works with any (or no!) Mongo ODM.
