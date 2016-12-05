@@ -15,7 +15,10 @@ module ActionDispatch
         end
 
         def self.load(options = {})
-          options[:data] = options["data"] if options["data"]
+          %w(_id data created_at updated_at).each do |field|
+            options[field.to_sym] = options[field] if options[field]
+          end
+
           new(options)
         end
 
