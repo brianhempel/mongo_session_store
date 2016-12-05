@@ -34,6 +34,10 @@ module ActionDispatch
         def set_session(env, sid, session_data, options = {})
           id, record = get_session_record(env, sid)
           record.data = pack(session_data)
+
+          # Custom code that runs (if defined) before the session is saved
+          record.before_save_session(env, sid, session_data, options) if record.respond_to?(:before_save_session)
+
           # Rack spec dictates that set_session should return true or false
           # depending on whether or not the session was saved or not.
           # However, ActionPack seems to want a session id instead.
