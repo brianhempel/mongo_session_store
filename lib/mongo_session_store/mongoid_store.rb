@@ -1,5 +1,6 @@
 require 'mongoid'
 require 'mongo_session_store/mongo_store_base'
+require 'moped'
 
 module ActionDispatch
   module Session
